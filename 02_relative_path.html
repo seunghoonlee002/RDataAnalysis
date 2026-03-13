@@ -1,0 +1,3046 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="02_relative_path_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02_relative_path_files/libs/quarto-html/tabby.min.js"></script>
+<script src="02_relative_path_files/libs/quarto-html/popper.min.js"></script>
+<script src="02_relative_path_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="02_relative_path_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02_relative_path_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="02_relative_path_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <meta name="author" content="Seunghoon Lee">
+  <title>Relative Path</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="02_relative_path_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="02_relative_path_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="02_relative_path_files/libs/revealjs/dist/theme/quarto-7aefc9e1d3b64b86f3531c1690969677.css">
+  <link href="02_relative_path_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="02_relative_path_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="02_relative_path_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="02_relative_path_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="02_relative_path_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="02_relative_path_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Relative Path</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Seunghoon Lee 
+</div>
+        <p class="quarto-title-affiliation">
+            Yonsei University
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="working-directory" class="slide level2">
+<h2>Working Directory</h2>
+<ul>
+<li><p>The (current) working directory is the directory <code>R</code> is currently working in.</p></li>
+<li><p>The working directory is the default location <code>R</code> uses when reading or writing a file.</p></li>
+<li><p>When you open the <code>econ1003.Proj</code> file, it sets the working directory to be the one where the project file is located (i.e., <code>econ1003</code> folder.)</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>Open the <code>econ1003.Proj</code>. The top of Console pane shows the working directory.</p></li>
+<li><p>Or you can type in Console</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Confirm that the directory is the one where the project file is located.</p></li>
+<li><p>To see contents in the current working folder in <code>Files</code> pane, click <code>More file commands</code> <span class="math inline">\(\rightarrow\)</span> <code>Go to Working Directory</code> in the panel.</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>The working directory is the default location <code>R</code> uses when reading or writing a file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href=""></a>sale <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"seoul_apt_sale.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>The command above does not work, since <code>R</code> cannot find the file in the current working folder.</p>
+<p><br></p>
+</div>
+<div class="fragment">
+<p>Instead, use</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href=""></a>sale <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/seoul_apt_sale.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Confirm in <code>Files</code> pane that the <code>seoul_apt_sale.rds</code> is in <code>data</code> subfolder from the working directory.</p>
+<p>Note we use ‘/’ rather than ‘\’.</p>
+</div>
+</section>
+<section id="relative-path" class="slide level2">
+<h2>Relative Path</h2>
+<p>This is called a relative path.</p>
+<ul>
+<li><p>A relative path is shorter than an absolute path.</p></li>
+<li><p>It is more portable. For example, if you move the whole working directory to another location, all relative paths within the folder would still work.</p></li>
+<li><p>Easier to share codes with others (or if you have multiple computers). Different computers have different directory structures.</p></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, hp)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href=""></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="02_relative_path_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<p>The following saves the plot in <code>econ1003</code>, the current working folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"mpg_hp.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="fragment">
+<p>If you want to save the plot in <code>temp</code> subfolder, use</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"temp/mpg_hp.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Confirm in <code>Files</code> pane, that the files are created in the two folders.</p>
+</div>
+</section>
+<section id="tasks" class="slide level2">
+<h2>Tasks</h2>
+<ul>
+<li>Open <code>data/hmda_ca_2024.csv</code> in <code>data</code> subfolder, and names it to <code>hmda</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>hmda <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/hmda_ca_2024.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Browse the data using <code>view()</code> function.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">view</span>(hmda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check the codebook <code>hmda_2024_desc.pdf</code> and familiarize yourself with the dataset.</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="cell-output-display">
+<div id="eslxycbxvr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eslxycbxvr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#eslxycbxvr thead, #eslxycbxvr tbody, #eslxycbxvr tfoot, #eslxycbxvr tr, #eslxycbxvr td, #eslxycbxvr th {
+  border-style: none;
+}
+
+#eslxycbxvr p {
+  margin: 0;
+  padding: 0;
+}
+
+#eslxycbxvr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eslxycbxvr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eslxycbxvr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eslxycbxvr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#eslxycbxvr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#eslxycbxvr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#eslxycbxvr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#eslxycbxvr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#eslxycbxvr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#eslxycbxvr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#eslxycbxvr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#eslxycbxvr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#eslxycbxvr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#eslxycbxvr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#eslxycbxvr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eslxycbxvr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#eslxycbxvr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#eslxycbxvr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#eslxycbxvr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eslxycbxvr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#eslxycbxvr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eslxycbxvr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#eslxycbxvr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eslxycbxvr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eslxycbxvr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eslxycbxvr .gt_left {
+  text-align: left;
+}
+
+#eslxycbxvr .gt_center {
+  text-align: center;
+}
+
+#eslxycbxvr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eslxycbxvr .gt_font_normal {
+  font-weight: normal;
+}
+
+#eslxycbxvr .gt_font_bold {
+  font-weight: bold;
+}
+
+#eslxycbxvr .gt_font_italic {
+  font-style: italic;
+}
+
+#eslxycbxvr .gt_super {
+  font-size: 65%;
+}
+
+#eslxycbxvr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#eslxycbxvr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#eslxycbxvr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#eslxycbxvr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#eslxycbxvr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#eslxycbxvr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#eslxycbxvr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#eslxycbxvr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#eslxycbxvr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="activity_year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">activity_year</th>
+<th id="lei" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">lei</th>
+<th id="loan_type" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">loan_type</th>
+<th id="loan_purpose" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">loan_purpose</th>
+<th id="preapproval" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">preapproval</th>
+<th id="construction_method" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">construction_method</th>
+<th id="occupancy_type" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">occupancy_type</th>
+<th id="loan_amount" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">loan_amount</th>
+<th id="action_taken" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">action_taken</th>
+<th id="state" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">state</th>
+<th id="county" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">county</th>
+<th id="census_tract" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">census_tract</th>
+<th id="ethnicity_applicant_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_applicant_1</th>
+<th id="ethnicity_applicant_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_applicant_2</th>
+<th id="ethnicity_applicant_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_applicant_3</th>
+<th id="ethnicity_applicant_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_applicant_4</th>
+<th id="ethnicity_applicant_5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_applicant_5</th>
+<th id="ethnicity_co_applicant_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_co_applicant_1</th>
+<th id="ethnicity_co_applicant_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_co_applicant_2</th>
+<th id="ethnicity_co_applicant_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_co_applicant_3</th>
+<th id="ethnicity_co_applicant_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_co_applicant_4</th>
+<th id="ethnicity_co_applicant_5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_co_applicant_5</th>
+<th id="ethnicity_applicant_visual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_applicant_visual</th>
+<th id="ethnicity_co_applicant_visual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ethnicity_co_applicant_visual</th>
+<th id="race_applicant_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_applicant_1</th>
+<th id="race_applicant_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_applicant_2</th>
+<th id="race_applicant_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_applicant_3</th>
+<th id="race_applicant_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_applicant_4</th>
+<th id="race_applicant_5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_applicant_5</th>
+<th id="race_co_applicant_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_co_applicant_1</th>
+<th id="race_co_applicant_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_co_applicant_2</th>
+<th id="race_co_applicant_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_co_applicant_3</th>
+<th id="race_co_applicant_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_co_applicant_4</th>
+<th id="race_co_applicant_5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_co_applicant_5</th>
+<th id="race_applicant_visual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_applicant_visual</th>
+<th id="race_co_applicant_visual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">race_co_applicant_visual</th>
+<th id="sex_applicant" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">sex_applicant</th>
+<th id="sex_co_applicant" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">sex_co_applicant</th>
+<th id="sex_applicant_visual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">sex_applicant_visual</th>
+<th id="sex_co_applicant_visual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">sex_co_applicant_visual</th>
+<th id="age_applicant" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">age_applicant</th>
+<th id="age_applicant_gte_62" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">age_applicant_gte_62</th>
+<th id="age_co_applicant" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">age_co_applicant</th>
+<th id="age_co_applicant_gte_62" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">age_co_applicant_gte_62</th>
+<th id="income" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">income</th>
+<th id="purchaser_type" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">purchaser_type</th>
+<th id="rate_spread" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">rate_spread</th>
+<th id="hoepa_status" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">hoepa_status</th>
+<th id="lien_status" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">lien_status</th>
+<th id="applicant_credit_score_model" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">applicant_credit_score_model</th>
+<th id="co_applicant_credit_score_model" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">co_applicant_credit_score_model</th>
+<th id="denial_reason_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">denial_reason_1</th>
+<th id="denial_reason_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">denial_reason_2</th>
+<th id="denial_reason_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">denial_reason_3</th>
+<th id="denial_reason_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">denial_reason_4</th>
+<th id="total_loan_costs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">total_loan_costs</th>
+<th id="total_points_and_fees" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">total_points_and_fees</th>
+<th id="origination_charges" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">origination_charges</th>
+<th id="discount_points" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">discount_points</th>
+<th id="lender_credits" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">lender_credits</th>
+<th id="interest_rate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">interest_rate</th>
+<th id="prepayment_penalty_term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">prepayment_penalty_term</th>
+<th id="dti_ratio" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">dti_ratio</th>
+<th id="cltv_ratio" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">cltv_ratio</th>
+<th id="loan_term" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">loan_term</th>
+<th id="intro_rate_period" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">intro_rate_period</th>
+<th id="balloon_payment" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">balloon_payment</th>
+<th id="interest_only_payment" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">interest_only_payment</th>
+<th id="negative_amortization" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">negative_amortization</th>
+<th id="other_non_amortizing_features" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">other_non_amortizing_features</th>
+<th id="property_value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">property_value</th>
+<th id="manufactured_home_secured_property_type" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">manufactured_home_secured_property_type</th>
+<th id="manufactured_home_land_property_interest" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">manufactured_home_land_property_interest</th>
+<th id="total_units" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">total_units</th>
+<th id="multifamily_affordable_units" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">multifamily_affordable_units</th>
+<th id="submission_of_application" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">submission_of_application</th>
+<th id="initially_payable_to_institution" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">initially_payable_to_institution</th>
+<th id="aus_1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">aus_1</th>
+<th id="aus_2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">aus_2</th>
+<th id="aus_3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">aus_3</th>
+<th id="aus_4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">aus_4</th>
+<th id="aus_5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">aus_5</th>
+<th id="reverse_mortgage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">reverse_mortgage</th>
+<th id="open_end_line_of_credit" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">open_end_line_of_credit</th>
+<th id="business_or_commercial_purpose" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">business_or_commercial_purpose</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">2</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">515000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6061</td>
+<td class="gt_row gt_right" headers="census_tract">06061021324</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">3</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">3</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">120</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">0.401999999999999</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">2</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">22724.18</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">8807.35</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">5.625</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">39</td>
+<td class="gt_row gt_right" headers="cltv_ratio">100.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">525000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">3</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">155000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6001</td>
+<td class="gt_row gt_right" headers="census_tract">06001440336</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">2</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">55-64</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">239</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">-6.12</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">2</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">500.00</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">500.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">0.000</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">44</td>
+<td class="gt_row gt_right" headers="cltv_ratio">100.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">1075000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">6</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">3</td>
+<td class="gt_row gt_right" headers="loan_amount">935000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6037</td>
+<td class="gt_row gt_right" headers="census_tract">06037480901</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">2</td>
+<td class="gt_row gt_right" headers="race_applicant_2">26</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">132</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">1</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">NA</td>
+<td class="gt_row gt_right" headers="discount_points">NA</td>
+<td class="gt_row gt_right" headers="lender_credits">NA</td>
+<td class="gt_row gt_right" headers="interest_rate">6.125</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">30%-&lt;36%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">64.38000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">1455000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">4</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">2</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">305000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6107</td>
+<td class="gt_row gt_right" headers="census_tract">06107002904</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">25-34</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">87</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">0.144</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">9633.53</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">1463.08</td>
+<td class="gt_row gt_right" headers="discount_points">1463.08</td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">5.750</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">47</td>
+<td class="gt_row gt_right" headers="cltv_ratio">95.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">325000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">3</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">2</td>
+<td class="gt_row gt_right" headers="loan_purpose">32</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">345000</td>
+<td class="gt_row gt_right" headers="action_taken">3</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6115</td>
+<td class="gt_row gt_right" headers="census_tract">06115040702</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">3</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">3</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">100</td>
+<td class="gt_row gt_right" headers="purchaser_type">0</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">1</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">6</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">NA</td>
+<td class="gt_row gt_right" headers="discount_points">NA</td>
+<td class="gt_row gt_right" headers="lender_credits">NA</td>
+<td class="gt_row gt_right" headers="interest_rate">NA</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">30%-&lt;36%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">80.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">435000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">3</td>
+<td class="gt_row gt_right" headers="aus_1">3</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">425000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6029</td>
+<td class="gt_row gt_right" headers="census_tract">06029002807</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">65-74</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">Yes</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">93</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">-0.518999999999999</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">10360.62</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">6907.67</td>
+<td class="gt_row gt_right" headers="discount_points">483.92</td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">5.625</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">44</td>
+<td class="gt_row gt_right" headers="cltv_ratio">75.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">575000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">15000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6047</td>
+<td class="gt_row gt_right" headers="census_tract">06047001603</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">14</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">14</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">55-64</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">55-64</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">120</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">2.95</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">2</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">2</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">0.00</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">0.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">8.750</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">37</td>
+<td class="gt_row gt_right" headers="cltv_ratio">100.00000</td>
+<td class="gt_row gt_right" headers="loan_term">120</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">385000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">6</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">765000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6107</td>
+<td class="gt_row gt_right" headers="census_tract">06107001008</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">11</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">1</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">25-34</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">482</td>
+<td class="gt_row gt_right" headers="purchaser_type">6</td>
+<td class="gt_row gt_right" headers="rate_spread">0.0289999999999999</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">22201.01</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">18205.56</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits">8347.73</td>
+<td class="gt_row gt_right" headers="interest_rate">6.125</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">42</td>
+<td class="gt_row gt_right" headers="cltv_ratio">84.79000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">1165000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">2</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">375000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6019</td>
+<td class="gt_row gt_right" headers="census_tract">06019003808</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">1</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">24</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">25-34</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">25-34</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">138</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">0.338</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">1</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">19706.52</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">7075.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">5.625</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">30%-&lt;36%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">100.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">385000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">3</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">3</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">345000</td>
+<td class="gt_row gt_right" headers="action_taken">3</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6019</td>
+<td class="gt_row gt_right" headers="census_tract">06019004802</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">87</td>
+<td class="gt_row gt_right" headers="purchaser_type">0</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">1</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">6</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">NA</td>
+<td class="gt_row gt_right" headers="discount_points">NA</td>
+<td class="gt_row gt_right" headers="lender_credits">NA</td>
+<td class="gt_row gt_right" headers="interest_rate">NA</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">50%-60%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">100.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">345000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">3</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">2</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">345000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6019</td>
+<td class="gt_row gt_right" headers="census_tract">06019005302</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">11</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">1</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">11</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">1</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">45-54</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">45-54</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">146</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">0.399999999999999</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">9919.30</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">1075.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits">452.77</td>
+<td class="gt_row gt_right" headers="interest_rate">5.750</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">20%-&lt;30%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">96.50000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">355000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">3</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">31</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">2</td>
+<td class="gt_row gt_right" headers="loan_amount">375000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6013</td>
+<td class="gt_row gt_right" headers="census_tract">06013345105</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">55-64</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">55-64</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">417</td>
+<td class="gt_row gt_right" headers="purchaser_type">1</td>
+<td class="gt_row gt_right" headers="rate_spread">0.348000000000001</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">3637.95</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">1075.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits">3521.25</td>
+<td class="gt_row gt_right" headers="interest_rate">6.625</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">20%-&lt;30%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">58.59000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">645000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">625000</td>
+<td class="gt_row gt_right" headers="action_taken">3</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6029</td>
+<td class="gt_row gt_right" headers="census_tract">06029003808</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">1</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">23</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">178</td>
+<td class="gt_row gt_right" headers="purchaser_type">0</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">1</td>
+<td class="gt_row gt_right" headers="denial_reason_1">6</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">NA</td>
+<td class="gt_row gt_right" headers="discount_points">NA</td>
+<td class="gt_row gt_right" headers="lender_credits">NA</td>
+<td class="gt_row gt_right" headers="interest_rate">NA</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">&gt;60%</td>
+<td class="gt_row gt_right" headers="cltv_ratio">91.99000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">685000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">3</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">645000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6111</td>
+<td class="gt_row gt_right" headers="census_tract">06111009200</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">1</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">25-34</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">131</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">-0.00300000000000011</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">2</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">19948.95</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">13975.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">6.000</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">47</td>
+<td class="gt_row gt_right" headers="cltv_ratio">103.25000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">775000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">15000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6061</td>
+<td class="gt_row gt_right" headers="census_tract">06061021324</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">3</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">3</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">6</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">35-44</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">120</td>
+<td class="gt_row gt_right" headers="purchaser_type">71</td>
+<td class="gt_row gt_right" headers="rate_spread">-6.102</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">2</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">2</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">250.00</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">250.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">1.000</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">39</td>
+<td class="gt_row gt_right" headers="cltv_ratio">100.00000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">525000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">6</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">3</td>
+<td class="gt_row gt_right" headers="loan_amount">385000</td>
+<td class="gt_row gt_right" headers="action_taken">4</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6017</td>
+<td class="gt_row gt_right" headers="census_tract">06017031505</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">3</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">&gt;74</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">Yes</td>
+<td class="gt_row gt_right" headers="age_co_applicant">55-64</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">119</td>
+<td class="gt_row gt_right" headers="purchaser_type">0</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">NA</td>
+<td class="gt_row gt_right" headers="discount_points">NA</td>
+<td class="gt_row gt_right" headers="lender_credits">NA</td>
+<td class="gt_row gt_right" headers="interest_rate">NA</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">NA</td>
+<td class="gt_row gt_right" headers="cltv_ratio">NA</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">NA</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">3</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">1</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">505000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6111</td>
+<td class="gt_row gt_right" headers="census_tract">06111007506</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">45-54</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">189</td>
+<td class="gt_row gt_right" headers="purchaser_type">3</td>
+<td class="gt_row gt_right" headers="rate_spread">-0.138999999999999</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">2</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">6317.55</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">1075.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits">1545.00</td>
+<td class="gt_row gt_right" headers="interest_rate">6.125</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">43</td>
+<td class="gt_row gt_right" headers="cltv_ratio">49.50000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">1015000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">2</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">225000</td>
+<td class="gt_row gt_right" headers="action_taken">1</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6107</td>
+<td class="gt_row gt_right" headers="census_tract">06107001008</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">1</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">11</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">8</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">4</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">5</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">4</td>
+<td class="gt_row gt_left" headers="age_applicant">25-34</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">9999</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">482</td>
+<td class="gt_row gt_right" headers="purchaser_type">6</td>
+<td class="gt_row gt_right" headers="rate_spread">2.06</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">2</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">10</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">719.95</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">695.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits">486.20</td>
+<td class="gt_row gt_right" headers="interest_rate">8.375</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">42</td>
+<td class="gt_row gt_right" headers="cltv_ratio">84.79000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">1165000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">1</td>
+<td class="gt_row gt_right" headers="aus_1">6</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">31</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">1</td>
+<td class="gt_row gt_right" headers="loan_amount">845000</td>
+<td class="gt_row gt_right" headers="action_taken">6</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6081</td>
+<td class="gt_row gt_right" headers="census_tract">06081600100</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">4</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">4</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">3</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">3</td>
+<td class="gt_row gt_right" headers="race_applicant_1">7</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">7</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">3</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">3</td>
+<td class="gt_row gt_right" headers="sex_applicant">4</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">4</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">3</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">3</td>
+<td class="gt_row gt_left" headers="age_applicant">8888</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="age_co_applicant">8888</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">NA</td>
+<td class="gt_row gt_right" headers="income">NA</td>
+<td class="gt_row gt_right" headers="purchaser_type">1</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">2</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">10</td>
+<td class="gt_row gt_right" headers="denial_reason_2">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">0.00</td>
+<td class="gt_row gt_right" headers="discount_points"></td>
+<td class="gt_row gt_right" headers="lender_credits"></td>
+<td class="gt_row gt_right" headers="interest_rate">6.125</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">NA</td>
+<td class="gt_row gt_right" headers="cltv_ratio">NA</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">1285000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">3</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">3</td>
+<td class="gt_row gt_right" headers="aus_1">6</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="activity_year">2024</td>
+<td class="gt_row gt_left" headers="lei">549300MZ8VZJOVC63092</td>
+<td class="gt_row gt_right" headers="loan_type">1</td>
+<td class="gt_row gt_right" headers="loan_purpose">2</td>
+<td class="gt_row gt_right" headers="preapproval">2</td>
+<td class="gt_row gt_right" headers="construction_method">1</td>
+<td class="gt_row gt_right" headers="occupancy_type">3</td>
+<td class="gt_row gt_right" headers="loan_amount">305000</td>
+<td class="gt_row gt_right" headers="action_taken">3</td>
+<td class="gt_row gt_left" headers="state">CA</td>
+<td class="gt_row gt_right" headers="county">6017</td>
+<td class="gt_row gt_right" headers="census_tract">06017030301</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_1">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="ethnicity_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="ethnicity_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_1">5</td>
+<td class="gt_row gt_right" headers="race_co_applicant_2">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_3">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_4">NA</td>
+<td class="gt_row gt_right" headers="race_co_applicant_5">NA</td>
+<td class="gt_row gt_right" headers="race_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="race_co_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_applicant">1</td>
+<td class="gt_row gt_right" headers="sex_co_applicant">2</td>
+<td class="gt_row gt_right" headers="sex_applicant_visual">2</td>
+<td class="gt_row gt_right" headers="sex_co_applicant_visual">2</td>
+<td class="gt_row gt_left" headers="age_applicant">45-54</td>
+<td class="gt_row gt_left" headers="age_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="age_co_applicant">45-54</td>
+<td class="gt_row gt_left" headers="age_co_applicant_gte_62">No</td>
+<td class="gt_row gt_right" headers="income">89</td>
+<td class="gt_row gt_right" headers="purchaser_type">0</td>
+<td class="gt_row gt_right" headers="rate_spread">NA</td>
+<td class="gt_row gt_right" headers="hoepa_status">3</td>
+<td class="gt_row gt_right" headers="lien_status">1</td>
+<td class="gt_row gt_right" headers="applicant_credit_score_model">3</td>
+<td class="gt_row gt_right" headers="co_applicant_credit_score_model">9</td>
+<td class="gt_row gt_right" headers="denial_reason_1">5</td>
+<td class="gt_row gt_right" headers="denial_reason_2">6</td>
+<td class="gt_row gt_right" headers="denial_reason_3">NA</td>
+<td class="gt_row gt_right" headers="denial_reason_4">NA</td>
+<td class="gt_row gt_right" headers="total_loan_costs">NA</td>
+<td class="gt_row gt_left" headers="total_points_and_fees">NA</td>
+<td class="gt_row gt_right" headers="origination_charges">NA</td>
+<td class="gt_row gt_right" headers="discount_points">NA</td>
+<td class="gt_row gt_right" headers="lender_credits">NA</td>
+<td class="gt_row gt_right" headers="interest_rate">NA</td>
+<td class="gt_row gt_left" headers="prepayment_penalty_term">NA</td>
+<td class="gt_row gt_left" headers="dti_ratio">49</td>
+<td class="gt_row gt_right" headers="cltv_ratio">59.64000</td>
+<td class="gt_row gt_right" headers="loan_term">360</td>
+<td class="gt_row gt_left" headers="intro_rate_period">NA</td>
+<td class="gt_row gt_right" headers="balloon_payment">2</td>
+<td class="gt_row gt_right" headers="interest_only_payment">2</td>
+<td class="gt_row gt_right" headers="negative_amortization">2</td>
+<td class="gt_row gt_right" headers="other_non_amortizing_features">2</td>
+<td class="gt_row gt_right" headers="property_value">505000</td>
+<td class="gt_row gt_right" headers="manufactured_home_secured_property_type">3</td>
+<td class="gt_row gt_right" headers="manufactured_home_land_property_interest">5</td>
+<td class="gt_row gt_right" headers="total_units">1</td>
+<td class="gt_row gt_left" headers="multifamily_affordable_units">NA</td>
+<td class="gt_row gt_right" headers="submission_of_application">2</td>
+<td class="gt_row gt_right" headers="initially_payable_to_institution">3</td>
+<td class="gt_row gt_right" headers="aus_1">1</td>
+<td class="gt_row gt_right" headers="aus_2">NA</td>
+<td class="gt_row gt_right" headers="aus_3">NA</td>
+<td class="gt_row gt_right" headers="aus_4">NA</td>
+<td class="gt_row gt_right" headers="aus_5">NA</td>
+<td class="gt_row gt_right" headers="reverse_mortgage">2</td>
+<td class="gt_row gt_right" headers="open_end_line_of_credit">2</td>
+<td class="gt_row gt_right" headers="business_or_commercial_purpose">1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="question" class="slide level2">
+<h2>Question</h2>
+<p>If “applicant_race_1==1”, the primary applicant’s race is</p>
+<p>A. Black or African American</p>
+<p>B. American Indian or Alaska Native</p>
+<p>C. Asian</p>
+<p>D. White</p>
+<p>E. Information not provided</p>
+</section>
+<section id="task" class="slide level2">
+<h2>Task</h2>
+<ul>
+<li>Calculate loan generation probability by race (<code>applicant_race_1</code>) by modifying the sample codes:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>hmda <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href=""></a>    <span class="fu">mutate</span>(<span class="at">ap =</span> <span class="fu">if_else</span>(action_taken <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">ap_rate =</span> <span class="fu">mean</span>(ap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Draw a bar chart with the probabilities and save it in <code>temp</code> folder (Hint: <code>geom_col()</code>).</li>
+</ul>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="images/yonsei.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="02_relative_path_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="02_relative_path_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="02_relative_path_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="02_relative_path_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
